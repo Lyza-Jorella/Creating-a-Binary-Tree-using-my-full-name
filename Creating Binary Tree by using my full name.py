@@ -1,6 +1,7 @@
 print()
 print("**********Programmed by:**********")
 print("**********Lyza Jorella R. Del Rosario**********")
+print()
 
 class BinarySearchTreeNode:
     def __init__(self,data):
@@ -55,6 +56,19 @@ class BinarySearchTreeNode:
                 return self.right.search(val)
             else:
                 return False
+
+def build_tree(elements):
+    root = BinarySearchTreeNode(elements[0])
+
+    for i in range(1, len(elements)):
+        root.add_child(elements[i])
+    print("Name:", elements)
+    return root
+
+if __name__ == '__main__':
+    name = ["L", "Y", "Z", "A", "J", "O", "R","E", "L", "L", "A", "R.", "D", "E","L", "R", "O", "S", "A", "R", "I", "O"]
+    name_tree = build_tree(name)
+
 
 
 
