@@ -4,7 +4,7 @@ print("**********Lyza Jorella R. Del Rosario**********")
 print()
 
 class BinarySearchTreeNode:
-    def __init__(self,data):
+    def __init__(self, data):
         self.data = data
         self.left = None
         self.right = None
@@ -14,7 +14,6 @@ class BinarySearchTreeNode:
             return
 
         if data < self.data:
-            # add data in left subtree
             if self.left:
                 self.left.add_child(data)
             else:
@@ -25,29 +24,13 @@ class BinarySearchTreeNode:
             else:
                 self.right = BinarySearchTreeNode(data)
 
-    def in_order_traversal(self):
-        elements = []
-
-        # visit left tree
-        if self.left:
-            elements += self.right.in_order_traversal()
-
-        # visit base node
-        elements.append(self.data)
-
-        # visit right tree
-        if self.right:
-            elements += self.right.in_order_traversal()
-
-        return elements
-
     def search(self, val):
         if self.data == val:
             return True
 
         if val < self.data:
             if self.left:
-                self.left.search(val)
+                return self.left.search(val)
             else:
                 return False
 
@@ -57,26 +40,37 @@ class BinarySearchTreeNode:
             else:
                 return False
 
-def build_tree(elements):
-    root = BinarySearchTreeNode(elements[0])
+    def in_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.in_order_traversal()
 
-    for i in range(1, len(elements)):
-        root.add_child(elements[i])
-    print("Name:", elements)
-    return root
+        elements.append(self.data)
 
-if __name__ == '__main__':
-    name = ["L", "Y", "Z", "A", "J", "O", "R","E", "L", "L", "A", "R.", "D", "E","L", "R", "O", "S", "A", "R", "I", "O"]
-    name_tree = build_tree(name)
+        if self.right:
+            elements += self.right.in_order_traversal()
+        return elements
 
-print("\nIs letter L in the list?", name_tree.search("L"))
-print("Is letter X in the list?", name_tree.search("X"))
+    def post_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.post_order_traversal()
 
+        if self.right:
+            elements += self.right.post_order_traversal()
 
+        elements.append(self.data)
 
+        return elements
 
+    def pre_order_traversal(self):
+        elements = []
+        elements.append(self.data)
+        if self.left:
+            elements += self.left.pre_order_traversal()
 
+        if self.right:
+            elements += self.right.pre_order_traversal()
 
-
-
+        return elements
 
