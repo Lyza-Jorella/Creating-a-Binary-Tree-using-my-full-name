@@ -41,7 +41,7 @@ class BinarySearchTreeNode:
 
         return elements
 
-    def search(selfself, val):
+    def search(self, val):
         if self.data == val:
             return True
 
@@ -68,6 +68,11 @@ def build_tree(elements):
 if __name__ == '__main__':
     name = ["L", "Y", "Z", "A", "J", "O", "R","E", "L", "L", "A", "R.", "D", "E","L", "R", "O", "S", "A", "R", "I", "O"]
     name_tree = build_tree(name)
+
+print("\nIs letter L in the list?", name_tree.search("L"))
+print("Is letter X in the list?", name_tree.search("X"))
+
+
 
 
 
