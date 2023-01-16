@@ -107,8 +107,33 @@ class BinarySearchTreeNode:
 
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0])
+
     for i in range(1, len(elements)):
         root.add_child(elements[i])
     print("Name:", elements)
-    return root
 
+    return root
+    print()
+
+if __name__ == '__main__':
+    name = ["L", "Y", "Z", "A", "J", "O", "R","E", "L", "L", "A", "R.", "D", "E","L", "R", "O", "S", "A", "R", "I", "O"]
+    name_tree = build_tree(name)
+    print()
+    print("*************************************************************************************************************************")
+    print()
+
+    print("In order traversal:", name_tree.in_order_traversal())
+    print("Pre order traversal:", name_tree.pre_order_traversal())
+    print("Post order traversal:", name_tree.post_order_traversal())
+    print()
+    print("Min Val:", name_tree.find_min())
+    print("Max Val:", name_tree.find_max())
+    print()
+    name_tree.delete("A")
+    print("After Deleteing A", name_tree.in_order_traversal())
+    name_tree.delete("D")
+    print("After Deleteing D", name_tree.in_order_traversal())
+    name_tree.delete("I")
+    print("After Deleteing I", name_tree.in_order_traversal())
+    print()
+    print(""*************************************************************************************************************************")
